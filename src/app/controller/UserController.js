@@ -31,7 +31,11 @@ class UserController {
           var token = jwt.sign({ "id":user._id, "roles":user.roles}, process.env.TOKEN_SECRET, {
             expiresIn: 600 // expira em 10 min
           });
-          return res.status(200).json({"token":token});
+          const result = {
+            token,
+            user,
+          }
+          return res.status(200).json(result);
         }
       });
     });

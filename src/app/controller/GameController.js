@@ -15,6 +15,15 @@ class GameController {
 
         return res.json(result);
     }
+    async getMyGames(req, res) {
+        const data = await Game.find(req.body);
+        const result = {
+            results: data,
+            total_results: data.length,
+        };
+
+        return res.json(result);
+    }
     async update(req, res) {
         const data = await Game.findByIdAndUpdate(req.body._id, req.body, { new: true, upsert: true });
         return res.json(data);

@@ -28,5 +28,6 @@ routes.post("/role", RoleController.store);
 routes.get("/game", GameController.index);
 routes.post("/game", GameController.store);
 routes.put("/game", GameController.update);
+routes.get("/myGames", GameController.getMyGames);
 
 module.exports = routes;
