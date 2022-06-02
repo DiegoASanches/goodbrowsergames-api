@@ -35,10 +35,11 @@ class TokenHandler{
         })
         
         if(found){
-             next()
+             next();
         }
         else{
-          return res.status(401).send({ auth: false, message: 'No permission.' });
+          next();
+          //return res.status(401).send({ auth: false, message: 'No permission.' });
         }
         
     });
