@@ -1,0 +1,11 @@
+{
+    "paths":[
+        {
+            "method":"GET","path":"/user","reqrole":["Administrator"]   
+        },
+        {
+            "method":"POST","path":"/login","reqrole":["Public"]   
+        }
+
+]
+}
