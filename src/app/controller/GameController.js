@@ -8,8 +8,12 @@ class GameController {
     }
     async index(req, res) {
         const data = await Game.find({});
+        const result = {
+            results: data,
+            total_results: data.length,
+        };
 
-        return res.json(data);
+        return res.json(result);
     }
     async update(req, res) {
         const data = await Game.findByIdAndUpdate(req.body._id, req.body, { new: true, upsert: true });

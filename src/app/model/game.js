@@ -5,26 +5,20 @@ const GameSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
-    vote_count: {
+    voteCount: {
         type: Number,
-        required: true
+        default: 5,
     },
-    poster_path: {
+    posterPath: {
         type: String,
-        required: true,
+        default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019',
     },
     overview: {
         type: String,
         required: true,
     },
-    imageURL: {
-        type: String,
-        required: true,
-        default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019',
-    },
     release_date: {
         type: String,
-        required: true,
     }
   },
   {
