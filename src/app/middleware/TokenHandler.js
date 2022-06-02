@@ -38,8 +38,7 @@ class TokenHandler{
              next();
         }
         else{
-          next();
-          //return res.status(401).send({ auth: false, message: 'No permission.' });
+          return res.status(401).send({ auth: false, message: 'No permission.' });
         }
         
     });
