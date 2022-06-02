@@ -9,6 +9,20 @@
         },
         {
             "method": "POST",
+            "path": "/game",
+            "reqrole": [
+                "Administrator"
+            ]
+        },
+        {
+            "method": "PUT",
+            "path": "/game",
+            "reqrole": [
+                "Administrator"
+            ]
+        },
+        {
+            "method": "POST",
             "path": "/login",
             "reqrole": [
                 "Public"

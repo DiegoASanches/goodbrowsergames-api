@@ -22,12 +22,12 @@ routes.post("/user", UserController.store);
 routes.put("/user", UserController.update);
 
 
-routes.get("/role", RoleController.index);
-routes.post("/role", RoleController.store);
+routes.get("/role",TKH.verifyJWT, RoleController.index);
+routes.post("/role",TKH.verifyJWT,TKH.roleChecker, RoleController.store);
 
 routes.get("/game", GameController.index);
-routes.post("/game", GameController.store);
-routes.put("/game", GameController.update);
+routes.post("/game",TKH.verifyJWT,TKH.roleChecker, GameController.store);
+routes.put("/game",TKH.verifyJWT,TKH.roleChecker, GameController.update);
 routes.get("/myGames", GameController.getMyGames);
 
 module.exports = routes;
