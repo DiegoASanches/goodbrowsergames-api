@@ -13,6 +13,7 @@ routes.get("/", function(req, res) {
 
 const UserController = require("./app/controller/UserController");
 const RoleController = require("./app/controller/RoleController");
+const GameController = require("./app/controller/GameController");
 var TKH = new TokenHandler();
 routes.post("/login", UserController.login);
 
@@ -23,5 +24,10 @@ routes.put("/user", UserController.update);
 
 routes.get("/role", RoleController.index);
 routes.post("/role", RoleController.store);
+
+routes.get("/game", GameController.index);
+routes.post("/game", GameController.store);
+routes.put("/game", GameController.update);
+routes.get("/myGames", GameController.getMyGames);
 
 module.exports = routes;
