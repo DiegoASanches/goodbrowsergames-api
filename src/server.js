@@ -12,8 +12,8 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
-    
-    this.express.listen(3001, () =>
+    const PORT = process.env.PORT || 3001;
+    this.express.listen(PORT, () =>
       console.log(`Sua API REST está funcionando na porta 3001 `)
     );
 
