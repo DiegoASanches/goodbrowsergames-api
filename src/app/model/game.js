@@ -4,6 +4,7 @@ const GameSchema = new mongoose.Schema(
     title: {
         type: String,
         required: true,
+        index: {unique:true}
     },
     voteCount: {
         type: Number,
@@ -19,7 +20,13 @@ const GameSchema = new mongoose.Schema(
     },
     release_date: {
         type: String,
-    }
+    },
+    categories: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category"
+      }
+    ]
   },
   {
     timestamps: true
