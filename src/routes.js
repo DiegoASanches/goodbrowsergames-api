@@ -15,6 +15,7 @@ const UserController = require("./app/controller/UserController");
 const RoleController = require("./app/controller/RoleController");
 const GameController = require("./app/controller/GameController");
 const CategoryController = require("./app/controller/CategoryController");
+const EvaluationController = require("./app/controller/EvaluationController");
 var TKH = new TokenHandler();
 routes.post("/login", UserController.login);
 
@@ -33,7 +34,11 @@ routes.get("/myGames", GameController.getMyGames);
 
 
 routes.get("/category", CategoryController.index);
-routes.post("/game",TKH.verifyJWT,TKH.roleChecker, CategoryController.store);
-routes.put("/game",TKH.verifyJWT,TKH.roleChecker, CategoryController.update);
+routes.post("/category",TKH.verifyJWT,TKH.roleChecker, CategoryController.store);
+routes.put("/category",TKH.verifyJWT,TKH.roleChecker, CategoryController.update);
+
+routes.get("/evaluation", EvaluationController.index);
+routes.post("/evaluation",TKH.verifyJWT,TKH.roleChecker, EvaluationController.store);
+routes.put("/evaluation",TKH.verifyJWT,TKH.roleChecker, EvaluationController.update);
 
 module.exports = routes;
