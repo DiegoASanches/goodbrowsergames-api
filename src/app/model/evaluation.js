@@ -15,3 +15,4 @@ const EvaluationSchema = new mongoose.Schema(
 
   }
   );
+  module.exports = mongoose.model("Evaluation", EvaluationSchema);
