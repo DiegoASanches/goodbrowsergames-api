@@ -8,7 +8,6 @@ const GameSchema = new mongoose.Schema(
     },
     voteCount: {
         type: Number,
-        default: 5,
     },
     posterPath: {
         type: String,

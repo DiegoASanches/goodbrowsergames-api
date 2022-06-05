@@ -7,7 +7,7 @@ class EvaluationController {
         return res.json(data);
     }
     async index(req, res) {
-        const data = await Evaluation.find(req.body);
+        const data = await Evaluation.find(req.query);
         const result = {
             results: data,
             total_results: data.length,
