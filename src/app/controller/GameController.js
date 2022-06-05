@@ -1,4 +1,5 @@
 const Game = require("../model/game");
+const Evaluation = require("../model/evaluation");
 
 class GameController {
     async store(req, res) {
@@ -16,8 +17,10 @@ class GameController {
         return res.json(result);
     }
     async getOneGame(req, res) {
-        const data = await Game.findOne({_id: req.params.id });
-
+        const data = await Game.findById(req.params.id);
+        const evaluations = await Evaluation.find({game: req.params.id});
+        data.voteCount = Math.floor((evaluations.map(evaluation => evaluation.grade).reduce((partialSum, a) => Number(partialSum) + Number(a), 0))/evaluations.length);
+        await Game.findByIdAndUpdate(req.params.id, {voteCount: data.voteCount});
         return res.json(data);
     }
     async getMyGames(req, res) {

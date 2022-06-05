@@ -7,7 +7,7 @@ class EvaluationController {
         return res.json(data);
     }
     async index(req, res) {
-        const data = await Evaluation.find({});
+        const data = await Evaluation.find(req.body);
         const result = {
             results: data,
             total_results: data.length,
@@ -16,7 +16,12 @@ class EvaluationController {
         return res.json(result);
     }
     async update(req, res) {
-        const data = await Evaluation.findByIdAndUpdate(req.body._id, req.body, { new: true, upsert: true });
+        let data = await Evaluation.findOne({ game: req.body.game, user: req.body.user });
+        if (!data) {
+            data = await Evaluation.create(req.body);
+        } else {
+            data = await Evaluation.findByIdAndUpdate(data._id, req.body);
+        }
         return res.json(data);
     }
 }

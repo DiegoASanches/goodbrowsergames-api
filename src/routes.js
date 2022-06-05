@@ -39,7 +39,7 @@ routes.post("/category",TKH.verifyJWT,TKH.roleChecker, CategoryController.store)
 routes.put("/category",TKH.verifyJWT,TKH.roleChecker, CategoryController.update);
 
 routes.get("/evaluation", EvaluationController.index);
-routes.post("/evaluation",TKH.verifyJWT,TKH.roleChecker, EvaluationController.store);
-routes.put("/evaluation",TKH.verifyJWT,TKH.roleChecker, EvaluationController.update);
+routes.post("/evaluation", EvaluationController.store);
+routes.put("/evaluation", EvaluationController.update);
 
 module.exports = routes;

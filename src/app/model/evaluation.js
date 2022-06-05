@@ -9,6 +9,9 @@ const EvaluationSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Game'
     },
+    description: {
+      type: String
+    },
     grade:{
         type: mongoose.Schema.Types.Decimal128,
     }
