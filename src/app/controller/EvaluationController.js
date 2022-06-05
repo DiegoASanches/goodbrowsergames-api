@@ -1,4 +1,5 @@
 const Evaluation = require("../model/evaluation");
+const User = require("../model/user");
 
 class EvaluationController {
     async store(req, res) {
@@ -17,6 +18,8 @@ class EvaluationController {
     }
     async update(req, res) {
         let data = await Evaluation.findOne({ game: req.body.game, user: req.body.user });
+        const user = await User.findById(req.body.user);
+        req.body.username = user.name;
         if (!data) {
             data = await Evaluation.create(req.body);
         } else {

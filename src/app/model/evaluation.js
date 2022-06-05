@@ -5,6 +5,9 @@ const EvaluationSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    username: {
+      type: String
+    },
     game:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Game'
