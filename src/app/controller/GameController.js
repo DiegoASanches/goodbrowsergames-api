@@ -15,6 +15,11 @@ class GameController {
 
         return res.json(result);
     }
+    async getOneGame(req, res) {
+        const data = await Game.findOne({_id: req.params.id });
+
+        return res.json(data);
+    }
     async getMyGames(req, res) {
         const data = await Game.find(req.body);
         const result = {

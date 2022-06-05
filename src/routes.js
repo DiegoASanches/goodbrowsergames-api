@@ -31,6 +31,7 @@ routes.get("/game", GameController.index);
 routes.post("/game",TKH.verifyJWT,TKH.roleChecker, GameController.store);
 routes.put("/game",TKH.verifyJWT,TKH.roleChecker, GameController.update);
 routes.get("/myGames", GameController.getMyGames);
+routes.get("/game/getOneGame/:id", GameController.getOneGame);
 
 
 routes.get("/category", CategoryController.index);
