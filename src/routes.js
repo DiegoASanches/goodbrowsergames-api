@@ -19,7 +19,7 @@ const EvaluationController = require("./app/controller/EvaluationController");
 var TKH = new TokenHandler();
 routes.post("/login", UserController.login);
 
-routes.get("/user",TKH.verifyJWT,TKH.roleChecker, UserController.index);
+routes.get("/user", UserController.index);
 routes.post("/user", UserController.store);
 routes.put("/user", UserController.update);
 
